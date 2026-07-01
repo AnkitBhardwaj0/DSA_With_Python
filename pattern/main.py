@@ -1,2 +1,2 @@
 import pattern
-pattern.butterfly(6)
+pattern.pattern_improve_hollow_butterfly(8)

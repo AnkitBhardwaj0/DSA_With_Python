@@ -274,8 +274,17 @@ def butterfly(n):
 0101
 10101
 """
-"""
-"""
+def binary_triangle(n):
+    for i in range(n):
+        if i%2==0:
+            start=1
+        else:
+            start=0
+        for _ in range(i+1):
+            print(start,end=" ")
+            start=1-start
+        print()#for new line
+
 """
 16. Floyd's Triangle
 1
@@ -284,6 +293,13 @@ def butterfly(n):
 7 8 9 10
 11 12 13 14 15
 """
+def floyds_triangle(n):
+    num=1
+    for i in range(n):
+        for _ in range(i+1):
+            print(num,end=" ")
+            num+=1
+        print()#for new line  
 """
 17. Alphabet Increment Triangle
 A
@@ -292,6 +308,21 @@ DEF
 GHIJ
 KLMNO
 """
+def alphabet_increment_triangle(n):
+    num=65
+    for i in range(n):
+        for _ in range(i+1):
+            print(chr(num),end=" ")
+            num+=1
+        print()#for new line
+#another method for alphabet increment triangle
+def alphabet_increment_tri(n):
+    ch = 'A'
+    for i in range(n):
+        for _ in range(i + 1):
+            print(ch, end=" ")
+            ch = chr(ord(ch) + 1)
+        print()
 """
 18. Reverse Alphabet Triangle
 E
@@ -300,6 +331,14 @@ CDE
 BCDE
 ABCDE
 """
+def reverse_alphabet_triangle(n):
+    for i in range(n):
+        start=chr(ord('A')+n-i-1)
+        for _ in range(i+1):
+            print(start,end=" ")
+            start=chr(ord(start)+1)
+        print()#for new line
+
 """
 19.Alphabet Palindrome Pyramid
     A
@@ -308,6 +347,30 @@ ABCDE
  ABCDCBA
 ABCDEDCBA
 """
+def alphabet_palindrome_pyramid(n):
+    for i in range(n):
+        spaces=n-i-1
+        for _ in range(spaces):
+            print(" ",end=" ")
+        for _ in range(2*i+1):
+            if _ <= i:
+                print(chr(ord('A')+_),end=" ")
+            else:
+                print(chr(ord('A')+2*i-_),end=" ")
+        print()#for new line
+# another method for alphabet palindrome pyramid
+def alphabet_palindrome_pyramid_2(n):
+    for i in range(n):
+        for _ in range(n - i - 1):
+            print(" ", end=" ")
+        ch = ord('A')
+        for _ in range(2 * i + 1):
+            print(chr(ch), end=" ")
+            if _ < i:
+                ch += 1
+            else:
+                ch -= 1
+        print()#for new line
 """
 20. Increasing Number Triangle
 1 2 3 4 5
@@ -316,6 +379,12 @@ ABCDEDCBA
 4 5
 5
 """
+def increasing_number_triangle(n):
+    for i in range(n):
+        start=i+1
+        for _ in range(n-i):
+            print(start+_,end=" ")
+        print()#for new line 
 """
 Reverse Number Triangle
 5
@@ -324,6 +393,11 @@ Reverse Number Triangle
 5432
 54321
 """
+def reverse_number_triangle(n):
+    for i in range(n):
+        for _ in range(i+1):
+            print(n-_,end=" ")
+        print()
 """
 22. Palindrome Number Pyramid
 1
@@ -332,6 +406,16 @@ Reverse Number Triangle
 1234321
 123454321
 """
+def palindrome_number_pyramid(n):
+    for i in range(n):
+        num=0
+        for j in range(2*i+1):
+            if j <= i:
+                num+=1
+            else:
+                num-=1
+            print(num,end=" ")
+        print()
 """
 23. Concentric Number Square
 4 4 4 4 4 4 4
@@ -342,6 +426,21 @@ Reverse Number Triangle
 4 3 3 3 3 3 4
 4 4 4 4 4 4 4
 """
+def concentric_number_square(n):
+    size=2*n-1
+    for i in range(size):
+        for j in range (size):
+            min_dist=min(i,j,size-1-i,size-1-j)
+            print(n-min_dist,end=" ")
+        print()
+#another method for concentric numbe square
+def concentric_number_square_2(n):
+    size=2*n-1
+    for i in range(size):
+        for j in range (size):
+            max_dist=max(abs(n-1-i),abs(n-1-j))
+            print(max_dist+1,end=" ")
+        print()
 """
 24. Hollow Butterfly
 *        *
@@ -354,6 +453,49 @@ Reverse Number Triangle
 **      **
 *        *
 """
+def hollow_butterfly(n):
+    for i in range (1,2*n):
+        if i<=n:
+            stars=i
+            spaces=2*(n-i)
+        else:
+            stars=2*n-i
+            spaces=2*(i-n)
+        for j in range(stars):
+            if j==0 or j==stars-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        for _ in range(spaces):
+            print(" ",end=" ")
+        for j in range(stars):
+            if j==0 or j==stars-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
+# improve code for hollow butterfly pattern 
+def hollow_wing(stars):
+    for j in range(stars):
+        if j == 0 or j == stars - 1:
+            print("*", end=" ")
+        else:
+            print(" ", end=" ")
+###
+def pattern_improve_hollow_butterfly(n):
+    for i in range (1,2*n):
+        if i<=n:
+            stars=i
+            spaces=2*(n-i)
+        else:
+            stars=2*n-i
+            spaces=2*(i-n)
+        hollow_wing(stars)
+        for _ in range(spaces):
+            print(" ",end=" ")
+        hollow_wing(stars)
+        print()  
+
 """
 25.Hollow Diamond 
     *
@@ -366,6 +508,7 @@ Reverse Number Triangle
    * *
     *
 """
+
 """
 26. Hollow Pyramid
     *
