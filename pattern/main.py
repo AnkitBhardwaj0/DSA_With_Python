@@ -1,2 +1,3 @@
 import pattern
-pattern.pattern_improve_hollow_butterfly(8)
+pattern.heart_patterns(5)
+pattern.hourglass(4)

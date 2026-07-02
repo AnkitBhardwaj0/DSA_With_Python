@@ -509,6 +509,24 @@ def pattern_improve_hollow_butterfly(n):
     *
 """
 
+def hollow_diamond(n):
+    for i in range(1,2*n):
+        if i<=n:
+            stars=2*i-1
+            spaces=n-i
+        else:
+            stars=2*(2*n-i)-1
+            spaces=i-n
+            spaces+=1
+        for _ in range (spaces):
+            print(" ",end=" ")
+        for j in range(stars):
+            if j==0 or j==stars-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
+
 """
 26. Hollow Pyramid
     *
@@ -517,6 +535,18 @@ def pattern_improve_hollow_butterfly(n):
  *     *
 *********
 """
+def hollow_pyramid(n):
+    for i in range(1,n+1):
+        stars=2*i-1
+        spaces=n-i
+        for _ in range (spaces):
+            print(" ",end=" ")
+        for j in range(stars):
+            if j==0 or j==stars-1 or i==n:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
 """
 27.Rhombus Pattern
     *****
@@ -525,6 +555,13 @@ def pattern_improve_hollow_butterfly(n):
  *****
 *****
 """
+def rhombus(n):
+    for i in range (1,n+1):
+        for _ in range(n-i):
+            print(" ",end=" ")
+        for _ in range (n):
+            print("*",end=" ")
+        print()
 """
 28. Hollow Rhombus
     *****
@@ -533,6 +570,16 @@ def pattern_improve_hollow_butterfly(n):
  *   *
 *****
 """
+def hollow_rhombus(n):
+    for i in range (1,n+1):
+        for _ in range(n-i):
+            print(" ",end=" ")
+        for j in range (n):
+            if i==1 or i==n or j==0 or j==n-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
 """
 29. X Pattern
 *       *
@@ -546,6 +593,22 @@ def pattern_improve_hollow_butterfly(n):
 *       *
 
 """
+def x_pattern(n):
+    for i in range(1,2*n):
+        if i<=n:
+            stars=2*(n-i)+1
+            spaces=i-1
+        else:
+            stars=2*(i-n)+1
+            spaces=2*n-i-1
+        for _ in range (spaces):
+            print(" ",end=" ")
+        for j in range(stars):
+            if j==0 or j==stars-1:
+                print("*",end=" ")
+            else:
+                print(" ",end=" ")
+        print()
 """
 30.Hourglass Pattern
 *********
@@ -558,6 +621,20 @@ def pattern_improve_hollow_butterfly(n):
  *******
 *********
 """
+def hourglass(n):
+    for i in range(1,2*n):
+        if i<=n:
+            stars=2*(n-i)+1
+            spaces=i-1
+        else:
+            stars=2*(i-n)+1
+            spaces=2*n-i-1
+        for _ in range (spaces):
+            print(" ",end=" ")
+        for j in range(stars):
+            print("*",end=" ")
+            
+        print()
 """
 31.Heart Pattern ❤️
  **   **
@@ -569,3 +646,35 @@ def pattern_improve_hollow_butterfly(n):
     **
 
 """
+def heart_pattern(n):#n=4
+    spaces=n-1
+    for i in range(1,2*n):
+        if i<n-1:
+            stars=2*i
+            for j in range(stars):
+                if j==0 and i==1:
+                    print(" ",end=" ")
+                print("*",end=" ")
+            for _ in range(spaces):
+                print(" ",end=" ")
+            spaces-=2
+            
+            for j in range(stars):
+                print("*",end=" ")
+        elif i==n-1:
+            for j in range(2*n+1):
+                print("*",end=" ")
+            spaces+=2
+            stars=2*n
+        else:
+            for j in range(spaces):
+                print(" ",end=" ")
+                
+            for j in range(stars):
+                print("*",end=" ")
+            spaces+=1
+            stars-=2
+        print()
+
+
+    
